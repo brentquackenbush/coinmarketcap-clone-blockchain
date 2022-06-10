@@ -1,8 +1,9 @@
-import React , {useState, useContext, useEffect, useCallback} from 'react'
+import {useState, useContext, useEffect, useCallback} from 'react'
 import btc from '../../assets/btc.png'
-import {CoinMarketContext} from '../../context/context'
-import Home from '../../pages'
-import CMCtableHeader from './CMCtableHeader'
+import { CoinMarketContext } from '../../context/context'
+import CMCTableHeader from './CMCtableHeader'
+import CMCTableRow from './CMCTableRow'
+
 const CMCTable = () => {
     /* We pull the top ten coins from our context now we are awaiting to call it and storing it in apiResponse*/
     let { getTopTenCoins } = useContext(CoinMarketContext)
@@ -12,32 +13,34 @@ const CMCTable = () => {
         setData()
     },[])
 
-    const setData = useCallback(async ()=> {
+    const setData = useCallback(async () => {
         try {
             let apiResponse = await getTopTenCoins()
-            let filterResponse = []
+            let filteredResponse = []
 
             for( let i = 0; i < apiResponse.length; i++) {
                 const element = apiResponse[i]
-                if(element.cmc_rank <= 10) filterResponse.push[element] 
+                if(element.cmc_rank <= 10) filteredResponse.push(element) 
             }
 
-            setCoinData(filterResponse)
+            setCoinData(filteredResponse)
         } catch (e) {
             console.log(e.message)
         }
+        
     }, [getTopTenCoins])
+    console.log(coinData)
 
     return (
         <div className='text-white font-bold'>
           <div className='mx-auto max-w-screen-2xl'>
             <table className='w-full'>
-              <CMCtableHeader />
+              <CMCTableHeader />
     
               {coinData && coinData ? (
                 coinData.map((coin, index) => {
                   return (
-                    <CMCtableRow
+                    <CMCTableRow
                       key={index}
                       starNum={coin.cmc_rank}
                       coinName={coin.name}
