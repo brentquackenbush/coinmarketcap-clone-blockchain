@@ -1,6 +1,6 @@
 import ChevronDown from '../assets/svg/chevronDown'
 import { useState, useContext, useEffect } from 'react'
-import { GunContext } from '../context/gunContext'
+import {GunContext}  from '../context/gunContext'
 import { faker } from '@faker-js/faker'
 import ChevronUp from '../assets/svg/chevronUp'
 import ChatCard from './chatCard'

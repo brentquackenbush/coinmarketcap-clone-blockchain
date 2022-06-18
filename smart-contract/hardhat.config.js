@@ -1,11 +1,12 @@
-require("@nomiclabs/hardhat-waffle");
+require('dotenv').config()
+require('@nomiclabs/hardhat-waffle')
 
 module.exports = {
-  solidity: "^0.8.4",
+  solidity: '0.8.4',
   networks: {
     rinkeby: {
-      url:process.env.SPEEDY_NODE,
-      accounts: [process.env_ACCOUNT]
-    }
-  }
+      url: process.env.SPEEDY_NODE,
+      accounts: [process.env.ACCOUNT],
+    },
+  },
 };

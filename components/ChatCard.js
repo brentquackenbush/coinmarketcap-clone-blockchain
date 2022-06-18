@@ -4,6 +4,8 @@ import Heart from '../assets/svg/heart'
 import MoreHorizontal from '../assets/svg/moreHorizontal'
 import Share from '../assets/svg/share'
 import Image from 'next/image'
+import BearishFilled from './buttons/BearishFilled'
+import BullishFilled from './buttons/BullishFilled'
 
 const styles = {
     postAction: `flex items-center`,
@@ -26,7 +28,7 @@ const ChatCard = ({content = '', timeStamp,sender,bullish,senderAvatar,likes,com
             <div className={styles.labelsContainer}>
                 {sender}
                 &nbsp; • &nbsp;
-                <span className={styles.grey400}>{timestamp}</span>
+                <span className={styles.grey400}>{timeStamp}</span>
                 &nbsp; • &nbsp;
                 {bullish ? <BullishFilled /> : <BearishFilled />}
             </div>

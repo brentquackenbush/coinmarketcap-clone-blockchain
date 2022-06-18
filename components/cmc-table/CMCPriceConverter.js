@@ -19,7 +19,7 @@ const styles = {
   convertButton: `bg-[#1d4ed8] p-2 px-5 w-min rounded-xl mt-5 cursor-pointer hover:opacity-60`,
 }
 
-const CMCpriceConverter = ({
+const CMCPriceConverter = ({
   from,
   to,
   fromSymbol,
@@ -203,4 +203,4 @@ const CMCpriceConverter = ({
   )
 }
 
-export default CMCpriceConverter
+export default CMCPriceConverter
